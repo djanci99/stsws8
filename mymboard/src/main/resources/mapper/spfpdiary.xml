@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="SpfpDiary"> 
+
+
+<select id="getSpfpDiaryList"
+resultType="com.mirhenge.jyl.spfp.model.SpfpDiary">
+SELECT 	SEQ, SPFP_DIARY.ID as ID, WDATE, CONTENT, 
+REF, IMG, JYL_MEMBER.TEAM as TEAM, pair
+FROM	SPFP_DIARY INNER JOIN JYL_MEMBER
+ON		SPFP_DIARY.ID=JYL_MEMBER.ID
+WHERE	JYL_MEMBER.TEAM !=0
+ORDER BY WDATE DESC
+</select>
+
+<select id="getSpfpDiary"
+parameterType="com.mirhenge.jyl.spfp.model.SpfpDiary"
+resultType="com.mirhenge.jyl.spfp.model.SpfpDiary">
+SELECT 	SEQ, SPFP_DIARY.ID as ID, WDATE, CONTENT, 
+REF, IMG, JYL_MEMBER.TEAM as TEAM, pair
+FROM	SPFP_DIARY INNER JOIN JYL_MEMBER
+ON		SPFP_DIARY.ID=JYL_MEMBER.ID
+WHERE	SEQ=#{seq} and JYL_MEMBER.TEAM !=0
+</select>
+<select id="getSpfpDiarys"
+parameterType="string"
+resultType="com.mirhenge.jyl.spfp.model.SpfpDiary">
+SELECT 	SEQ, SPFP_DIARY.ID as ID, WDATE, CONTENT, 
+REF, IMG, JYL_MEMBER.TEAM as TEAM, pair
+FROM	SPFP_DIARY INNER JOIN JYL_MEMBER
+ON		SPFP_DIARY.ID=JYL_MEMBER.ID
+WHERE	DATE_FORMAT(WDATE, '%Y%m%d') = #{today} and JYL_MEMBER.TEAM !=0
+ORDER BY JYL_MEMBER.TEAM asc
+</select>
+
+
+<select id="getSpfpDay"
+parameterType="java.lang.String"
+resultType="com.mirhenge.jyl.spfp.model.SpfpDiary">
+SELECT 	SEQ, SPFP_DIARY.ID as ID, WDATE, CONTENT, JYL_MEMBER.TEAM as TEAM , pair
+FROM	SPFP_DIARY  INNER JOIN JYL_MEMBER
+ON		SPFP_DIARY.ID=JYL_MEMBER.ID
+WHERE 	DATE_FORMAT(WDATE, '%Y%m%d') = #{yyyymmdd} and JYL_MEMBER.TEAM!=0
+ORDER BY WDATE DESC
+</select>
+
+<select id="getSpfpMonth"
+parameterType="java.lang.String"
+resultType="com.mirhenge.jyl.spfp.model.SpfpDiary">
+SELECT 	SEQ, B.ID as ID, WDATE, CONTENT, JYL_MEMBER.TEAM as TEAM , pair
+FROM 	(SELECT ROW_NUMBER() OVER 
+	  ( PARTITION BY DATE_FORMAT(WDATE, '%Y%m%d') ORDER BY WDATE DESC ) RN, 
+        SEQ,ID, CONTENT, WDATE , pair
+        FROM SPFP_DIARY 
+        WHERE DATE_FORMAT(WDATE, '%Y%m') = #{yyyymm}) B INNER JOIN JYL_MEMBER
+ON		B.ID=JYL_MEMBER.ID
+WHERE 	(RN BETWEEN 1 AND 10) and (JYL_MEMBER.TEAM>0)
+</select>
+
+<insert id="writeSpfpDiary"
+parameterType="com.mirhenge.jyl.spfp.model.SpfpDiary">
+INSERT INTO SPFP_DIARY (
+	 ID, WDATE, CONTENT, REF, IMG, pair
+)
+VALUES (
+	 #{id}, now(), #{content}, #{ref}, #{img}, #{pair}
+)
+</insert>
+
+<update id="updateSpfpDiary"
+parameterType="com.mirhenge.jyl.spfp.model.SpfpDiary">
+UPDATE SPFP_DIARY SET
+CONTENT=#{content}, REF=#{ref}, IMG=#{img}, pair=#{pair}, wdate=  STR_TO_DATE(#{yyyymmddhhmm}, '%Y%m%d%H%i') 
+WHERE SEQ=#{seq}
+</update>
+
+<update id="updateTeam"
+parameterType="com.mirhenge.jyl.spfp.model.SpfpDiary">
+UPDATE JYL_MEMBER SET
+TEAM=#{team}
+WHERE ID=#{id}
+</update>
+
+<delete id="deleteSpfpDiary"
+parameterType="com.mirhenge.jyl.spfp.model.SpfpDiary">
+DELETE FROM SPFP_DIARY 
+WHERE SEQ=#{seq}
+</delete>
+
+<select id="getMyDiaries"
+parameterType="int"
+resultType="com.mirhenge.jyl.spfp.model.SpfpDiary2">
+select d.seq seq, m.id id, d.content content, d.img img,
+ m.team team, d.pair pair, d.ref ref,
+date_format(d.wdate,'%Y-%m-%d') wdate
+ from jyl_member m, spfp_diary d 
+ where m.id=d.id and  team=#{team} 
+ order by wdate asc
+</select>
+
+<!-- and date_format(d.wdate,'%Y%m')=#{wdate}   -->
+ </mapper>
