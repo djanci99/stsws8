@@ -19,6 +19,6 @@
   <input type="submit" value="Submit">
 </form> 
 
-<a href="%{root}/insert"> 추가 </a>
+<a href="${root}/insert"> 추가 </a> <br>
 </body>
 </html>

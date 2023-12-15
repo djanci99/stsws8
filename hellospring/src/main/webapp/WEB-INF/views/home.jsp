@@ -13,6 +13,6 @@
 
 <P>  The time on the server is ${requestScope.serverTime}. </P>
 <P>  The time on the server is ${hello}. </P>
-<a href="%{root}/insert"> 추가 </a>
+<a href="${root}/insert"> 추가 </a> <br> 
 </body>
 </html>
