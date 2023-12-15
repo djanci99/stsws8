@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="JYLMember"> 
+
+	<insert id="addMember"  
+	parameterType="com.mirhenge.jyl.member.model.JYLMember">
+		INSERT INTO JYL_MEMBER (ID,NAME,EMAIL,PWD, DELFLAG, AUTH,team)
+		VALUES(#{id},#{name},#{email},md5(#{pwd}),0,3,0) 
+	</insert>
+	<select id="checkMember"
+	parameterType="com.mirhenge.jyl.member.model.JYLMember"
+	resultType="com.mirhenge.jyl.member.model.JYLMember">
+		SELECT ID,NAME,EMAIL,DELFLAG, AUTH, team
+		FROM JYL_MEMBER
+		WHERE ID=#{id} AND PWD=md5(#{pwd})
+	</select>
+
+	<select id="getID"
+	resultType="java.lang.Integer"
+	parameterType="com.mirhenge.jyl.member.model.JYLMember">
+		SELECT ifnull(COUNT(*),0)
+		FROM JYL_MEMBER WHERE ID=#{id}
+	</select>
+<select id="getIDList"
+	resultType="com.mirhenge.jyl.member.model.JYLMember">
+		SELECT ID,NAME, TEAM FROM JYL_MEMBER WHERE AUTH=3
+	</select>
+	<select id="getMyInfor"
+	parameterType="string"
+	resultType="com.mirhenge.jyl.member.model.JYLMember">
+		SELECT ID, NAME, EMAIL,    TEAM  FROM JYL_MEMBER
+		WHERE ID=#{id}
+	</select>
+	<update id="updateMyinfor"
+	parameterType="com.mirhenge.jyl.member.model.JYLMember"
+	>
+	update JYL_MEMBER set NAME=#{name}, EMAIL=#{email},  PWD=md5(#{npwd})
+		WHERE ID=#{id} and  pwd=md5(#{pwd})
+	</update>
+	
+	<select id="getMemInfors"
+	parameterType="map"
+	resultType="com.mirhenge.jyl.member.model.JYLMember">
+		SELECT ID, NAME, EMAIL, TEAM  FROM JYL_MEMBER
+		WHERE  auth != 1 
+		 <if test="stype != '' and stype != null">
+			<if test="stype == 'team'"> AND team=#{team}   </if>	
+		</if>
+		order by team asc
+	</select>
+ </mapper>
