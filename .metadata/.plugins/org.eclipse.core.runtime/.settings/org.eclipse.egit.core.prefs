@@ -1,2 +1,5 @@
+GitRepositoriesView.GitDirectories=C\:\\ssis\\stsws8\\.git;
+GitRepositoriesView.GitDirectories.relative=.git;
+RepositorySearchDialogSearchPath=C\:\\ssis\\stsws8
 core_autoIgnoreDerivedResources=false
 eclipse.preferences.version=1
