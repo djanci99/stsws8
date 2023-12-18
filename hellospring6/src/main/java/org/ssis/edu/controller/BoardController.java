@@ -30,8 +30,7 @@ public class BoardController {
 	public String writeArticle() throws Exception {
 		return "write";
 	}
-	@RequestMapping(value = "/write", 
-			method = RequestMethod.POST)
+	@RequestMapping(value = "/write", method = RequestMethod.POST)
 	public String writeArticle(@ModelAttribute BoardDto board)throws Exception {
 		boardService.writeArticle(board);
 		return "redirect:/list";// 성공하면 목록
@@ -41,5 +40,16 @@ public class BoardController {
 		logger.debug("detail    {}.  ", seq);
 		model.addAttribute("board", boardService.getArticle(seq));
 		return "detail"; //상세보기
+	}
+	@RequestMapping(value = "/update", method = RequestMethod.GET)
+	public String update(@RequestParam int seq, Model model) throws Exception {
+		logger.debug("update    {}.  ", seq);
+		model.addAttribute("board", boardService.getArticle(seq));
+		return "detail"; //상세보기
+	}
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
+	public String update(@ModelAttribute BoardDto board)throws Exception {
+		boardService.update(board);
+		return "redirect:/detail";// 성공하면 목록
 	}
 }

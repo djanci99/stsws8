@@ -50,5 +50,10 @@ tr:nth-child(even) {
   
 </table>
 
+<form action="${root}/update" method="get">
+  <input type="hidden" id="seq" name="seq" value ="${board.seq}"><br>
+  <input type="submit" value="수정하기">
+</form> 
+
 </body>
 </html>

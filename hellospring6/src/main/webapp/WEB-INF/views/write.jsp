@@ -3,7 +3,7 @@
 <c:set var="root" value="${pageContext.request.contextPath}"></c:set>
 <html>
 <head>
-	<title>list</title>
+	<title>write</title>
 	<style>
 table {
   font-family: arial, sans-serif;
