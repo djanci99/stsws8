@@ -10,5 +10,6 @@ public interface BoardService {
 
 	void writeArticle(BoardDto boardDto) throws SQLException;
 	List<BoardDto> listArticle() throws SQLException;
+	BoardDto getArticle(int seq) throws SQLException;
 	
 }

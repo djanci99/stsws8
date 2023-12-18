@@ -34,8 +34,15 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
+	@Transactional(readOnly = true)
 	public List<BoardDto> listArticle() throws SQLException {
 		return boardMapper.listArticle();
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public BoardDto getArticle(int seq) throws SQLException {
+		return boardMapper.getArticle(seq);
 	}
 
 	

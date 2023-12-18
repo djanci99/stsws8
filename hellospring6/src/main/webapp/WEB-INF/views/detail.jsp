@@ -3,7 +3,7 @@
 <c:set var="root" value="${pageContext.request.contextPath}"></c:set>
 <html>
 <head>
-	<title>list</title>
+	<title>detail</title>
 	<style>
 table {
   font-family: arial, sans-serif;
@@ -26,29 +26,28 @@ tr:nth-child(even) {
 [${login.name}]님&nbsp;&nbsp;&nbsp;&nbsp;<a href="${root}/list">목록</a>&nbsp;<a href="${root}/write">글쓰기</a>&nbsp;<a href="${root}/logout">로그아웃</a>
 <hr/>
 <h1>
-	Hello world!  
+	상세보기  
 </h1>
 
 <table>
+<col width = "200px">
+<col width = "500px">
   <tr>
-  <th>번호</th>
-    <th>아이디</th>
-   <!--  <th>이름</th> -->
-    <th>제목</th>
+  	<th>번호</th> <td> ${board.seq} </td>
   </tr>
-  <c:if test="{empty lists}" >
-    <tr>
-    <td colspan ="3">작성된 글이 없습니다.</td>
-    </tr>
-  </c:if> 
-  <c:forEach items="${lists}" var="board" varStatus="vs">
-    <tr>
-    <td>${vs.count+1}</td>
-    <td>${board.id}</td>
-   <%--  <td>${board.name}</td> --%>
-    <td><a href="${root}/detail?seq=${board.seq}">${board.title}</a></td>
+  <tr>
+  	<th>아이디</th> <td> ${board.id} </td>
   </tr>
-  </c:forEach>
+  <tr>
+  	<th>제목</th> <td> ${board.title} </td>
+  </tr>
+  <tr>
+  	<th>내용</th>
+  	<td><textarea rows ="10" cols = "50">
+  		${board.content}
+  	</textarea> </td>
+  </tr>
+  
 </table>
 
 </body>

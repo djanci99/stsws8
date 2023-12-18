@@ -12,11 +12,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		VALUES(#{id},#{title},#{content},now(),
 		#{ref},0,0,0,0)
 	</insert>
-	<select id="listArticle"
-	resultType="boardDto">
+	<select id="listArticle" resultType="boardDto">
 		SELECT SEQ ,ID ,TITLE,CONTENT,
 		WDATE,REF,STEP,DEPTH,PARENT,DELFLAG
 		FROM JYL_MBOARD
 		ORDER BY REF desc, STEP ASC
+	</select>
+	<select id="getArticle" parameterType="int" resultType="boardDto">
+		SELECT SEQ ,ID ,TITLE,CONTENT,
+		WDATE,REF,STEP,DEPTH,PARENT,DELFLAG
+		FROM JYL_MBOARD
+		WHERE 1=1
+		AND seq = #{seq}
 	</select>
 </mapper>

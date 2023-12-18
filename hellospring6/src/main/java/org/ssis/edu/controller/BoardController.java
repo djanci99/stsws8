@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.ssis.edu.board.model.BoardDto;
 import org.ssis.edu.board.model.service.BoardService;
 
@@ -33,7 +34,12 @@ public class BoardController {
 			method = RequestMethod.POST)
 	public String writeArticle(@ModelAttribute BoardDto board)throws Exception {
 		boardService.writeArticle(board);
-		return "redirect:/list";// 성공하면 로그인 화면으로 이동
+		return "redirect:/list";// 성공하면 목록
 	}
-
+	@RequestMapping(value = "/detail", method = RequestMethod.GET)
+	public String detail(@RequestParam int seq, Model model) throws Exception {
+		logger.debug("detail    {}.  ", seq);
+		model.addAttribute("board", boardService.getArticle(seq));
+		return "detail"; //상세보기
+	}
 }
