@@ -30,7 +30,6 @@ public class BoardServiceImpl implements BoardService {
 		System.out.println("글입력 전 dto : " + boardDto);
 		boardMapper.writeArticle(boardDto);
 		System.out.println("글입력 후 dto : " + boardDto);
-		
 	}
 
 	@Override
@@ -43,6 +42,20 @@ public class BoardServiceImpl implements BoardService {
 	@Transactional(readOnly = true)
 	public BoardDto getArticle(int seq) throws SQLException {
 		return boardMapper.getArticle(seq);
+	}
+
+	@Override
+	@Transactional
+	public void updateArticle(BoardDto board) throws SQLException {
+		System.out.println("글수정 전 dto : " + board);
+		boardMapper.updateArticle(board);
+		System.out.println("글수정 후 dto : " + board);
+	}
+
+	@Override
+	@Transactional
+	public BoardDto deleteArticle(int seq) throws SQLException {
+		return boardMapper.deleteArticle(seq);
 	}
 
 	

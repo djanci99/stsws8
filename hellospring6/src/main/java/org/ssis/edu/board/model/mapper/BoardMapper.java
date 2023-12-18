@@ -13,4 +13,6 @@ public interface BoardMapper {
 	void writeArticle(BoardDto boardDto) throws SQLException;
 	List<BoardDto> listArticle() throws SQLException;
 	BoardDto getArticle(int seq) throws SQLException;
+	void updateArticle(BoardDto board) throws SQLException;
+	BoardDto deleteArticle(int seq) throws SQLException;
 }
