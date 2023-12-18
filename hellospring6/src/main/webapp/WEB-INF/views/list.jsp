@@ -36,6 +36,11 @@ tr:nth-child(even) {
    <!--  <th>이름</th> -->
     <th>제목</th>
   </tr>
+  <c:if test=${empty lists} }>
+    <tr>
+    <td colspan ="3">작성된 글이 없습니다.</td>
+    </tr>
+  </c:if> 
   <c:forEach items="${lists}" var="board" varStatus="vs">
     <tr>
     <td>${vs.count+1}</td>

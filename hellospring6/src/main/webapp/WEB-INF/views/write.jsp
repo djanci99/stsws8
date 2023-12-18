@@ -29,7 +29,7 @@ tr:nth-child(even) {
 	Hello world!  
 </h1>
 
-<form id="form-register" method="POST"  action="./write">
+<form id="form-register" method="POST"  action="${root}/write">
 <div class="mb-3">
               <label for="subject" class="form-label">아이디 : </label>
               <input
@@ -64,7 +64,6 @@ tr:nth-child(even) {
 
             </div>
           </form>
-</table>
 
 </body>
 </html>

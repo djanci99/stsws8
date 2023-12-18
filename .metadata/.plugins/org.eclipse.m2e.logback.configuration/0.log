@@ -5096,3 +5096,38 @@ Caused by: org.eclipse.core.runtime.CoreException: One or more constraints have 
 2023-12-18 12:11:13,254 [Worker-135: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2023-12-18 12:11:13,254 [Worker-135: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
 2023-12-18 12:11:13,254 [Worker-135: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ssis\stsws8\hellospring6\src\test\resources
+2023-12-18 12:19:23,571 [Worker-142: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-12-18 12:19:23,571 [Worker-142: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2023-12-18 12:19:23,572 [Worker-142: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2023-12-18 12:19:23,572 [Worker-142: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2023-12-18 12:19:23,572 [Worker-142: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-12-18 12:19:23,572 [Worker-142: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2023-12-18 12:19:23,572 [Worker-142: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ssis\stsws8\hellospring6\src\test\resources
+2023-12-18 12:20:04,570 [Worker-139: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-12-18 12:20:04,570 [Worker-139: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2023-12-18 12:20:04,570 [Worker-139: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2023-12-18 12:20:04,570 [Worker-139: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2023-12-18 12:20:04,571 [Worker-139: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-12-18 12:20:04,571 [Worker-139: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2023-12-18 12:20:04,571 [Worker-139: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ssis\stsws8\hellospring6\src\test\resources
+2023-12-18 12:20:16,208 [Worker-145: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-12-18 12:20:16,208 [Worker-145: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2023-12-18 12:20:16,208 [Worker-145: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2023-12-18 12:20:16,208 [Worker-145: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2023-12-18 12:20:16,209 [Worker-145: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-12-18 12:20:16,209 [Worker-145: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2023-12-18 12:20:16,209 [Worker-145: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ssis\stsws8\hellospring6\src\test\resources
+2023-12-18 12:21:30,520 [Worker-143: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-12-18 12:21:30,520 [Worker-143: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2023-12-18 12:21:30,520 [Worker-143: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2023-12-18 12:21:30,521 [Worker-143: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2023-12-18 12:21:30,521 [Worker-143: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-12-18 12:21:30,521 [Worker-143: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2023-12-18 12:21:30,521 [Worker-143: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ssis\stsws8\hellospring6\src\test\resources
+2023-12-18 12:22:42,070 [Worker-145: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-12-18 12:22:42,070 [Worker-145: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2023-12-18 12:22:42,070 [Worker-145: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2023-12-18 12:22:42,070 [Worker-145: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2023-12-18 12:22:42,071 [Worker-145: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-12-18 12:22:42,071 [Worker-145: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2023-12-18 12:22:42,071 [Worker-145: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ssis\stsws8\hellospring6\src\test\resources
