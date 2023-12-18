@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.ssis.edu.board.model.mapper.BoardMapper"> 
+
+	<insert id="writeArticle"  
+	parameterType="boardDto">
+		INSERT INTO JYL_MBOARD(ID ,TITLE,CONTENT,WDATE,
+		REF,STEP,DEPTH,PARENT
+		,DELFLAG) 
+		VALUES(#{id},#{title},#{content},now(),
+		#{ref},0,0,0,0)
+	</insert>
+	<select id="listArticle"
+	resultType="boardDto">
+		SELECT SEQ ,ID ,TITLE,CONTENT,
+		WDATE,REF,STEP,DEPTH,PARENT,DELFLAG
+		FROM JYL_MBOARD
+		ORDER BY REF desc, STEP ASC
+	</select>
+</mapper>
