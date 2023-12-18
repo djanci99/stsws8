@@ -7,8 +7,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="writeArticle"  
 	parameterType="boardDto">
 		INSERT INTO JYL_MBOARD(ID ,TITLE,CONTENT,WDATE,
-		REF,STEP,DEPTH,PARENT
-		,DELFLAG) 
+		REF,STEP,DEPTH,PARENT,DELFLAG) 
 		VALUES(#{id},#{title},#{content},now(),
 		#{ref},0,0,0,0)
 	</insert>
@@ -16,6 +15,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT SEQ ,ID ,TITLE,CONTENT,
 		WDATE,REF,STEP,DEPTH,PARENT,DELFLAG
 		FROM JYL_MBOARD
+		WHERE DELFLAG = 0
 		ORDER BY REF desc, STEP ASC
 	</select>
 	<select id="getArticle" parameterType="int" resultType="boardDto">
@@ -24,6 +24,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM JYL_MBOARD
 		WHERE 1=1
 		AND seq = #{seq}
+		AND DELFLAG = 0
 	</select>
 	<select id="updateArticle" parameterType="boardDto">
 		UPDATE JYL_MBOARD
@@ -32,6 +33,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		AND seq = #{seq}
 	</select>
 	<select id="deleteArticle" parameterType="int">
-		DELETE FROM JYL_MBOARD WHERE seq = #{seq} 
+		UPDATE JYL_MBOARD
+		SET DELFLAG = 1
+		WHERE 1=1
+		AND seq = #{seq}
 	</select>
 </mapper>
