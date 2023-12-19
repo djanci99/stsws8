@@ -46,10 +46,21 @@ public class BoardAjaxController {
 //	}
 	
 	@RequestMapping(value = "/list", method = RequestMethod.POST)
-	public void addArticle(@RequestBody BoardDto board, Model model) throws Exception {
+	public void addArticle(@RequestBody BoardDto board) throws Exception {
 		ResResult rr = new ResResult();
 		try {
 			boardService.writeArticle(board);
+			rr.setStatus("SUCCESS");
+		} catch (Exception e) {
+			rr.setStatus("FAIL");
+		}
+	}
+	
+	@RequestMapping(value = "/list", method = RequestMethod.PUT)
+	public void updateArticle(@RequestBody BoardDto board) throws Exception {
+		ResResult rr = new ResResult();
+		try {
+			boardService.updateArticle(board);
 			rr.setStatus("SUCCESS");
 		} catch (Exception e) {
 			rr.setStatus("FAIL");
