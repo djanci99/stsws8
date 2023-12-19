@@ -52,7 +52,7 @@ public class AdminUserController {
 			@ApiResponse(code = 500, message = "서버에러!!") })
 	@GetMapping(value = "/user")
 	public ResponseEntity<?> userList() {
-		log.debug("userList call");
+//		log.debug("userList call");
 		try {
 			List<MemberDto> list = memberService.listMember(null);
 			if(list != null && !list.isEmpty()) {
@@ -70,7 +70,7 @@ public class AdminUserController {
 	@ApiOperation(value = "회원등록", notes = "회원의 정보를 받아 처리.")
 	@PostMapping(value = "/user")
 	public ResponseEntity<?> userRegister(@RequestBody MemberDto memberDto) {
-		log.debug("userRegister memberDto : {}", memberDto);
+//		log.debug("userRegister memberDto : {}", memberDto);
 		try {
 			memberService.joinMember(memberDto);
 			List<MemberDto> list = memberService.listMember(null);
@@ -90,7 +90,7 @@ public class AdminUserController {
 	})
 	@GetMapping(value = "/user/{userid}")
 	public ResponseEntity<?> userInfo(@PathVariable("userid") String userId) {
-		log.debug("userInfo userid : {}", userId);
+//		log.debug("userInfo userid : {}", userId);
 		try {
 			MemberDto memberDto = memberService.getMember(userId);
 			if(memberDto != null)
@@ -105,7 +105,7 @@ public class AdminUserController {
 	@ApiOperation(value = "회원정보수정", notes = "회원정보를 수정합니다.")
 	@PutMapping(value = "/user")
 	public ResponseEntity<?> userModify(@RequestBody MemberDto memberDto) {
-		log.debug("userModify memberDto : {}", memberDto);
+//		log.debug("userModify memberDto : {}", memberDto);
 		try {
 			memberService.updateMember(memberDto);
 			List<MemberDto> list = memberService.listMember(null);
@@ -118,7 +118,7 @@ public class AdminUserController {
 	@ApiOperation(value = "회원정보삭제", notes = "회원정보를 삭제합니다.")
 	@DeleteMapping(value = "/user/{userid}")
 	public ResponseEntity<?> userDelete(@PathVariable("userid") String userId) {
-		log.debug("userDelete userid : {}", userId);
+//		log.debug("userDelete userid : {}", userId);
 		try {
 			memberService.deleteMember(userId);
 			List<MemberDto> list = memberService.listMember(null);
