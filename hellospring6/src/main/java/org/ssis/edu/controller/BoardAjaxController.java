@@ -11,11 +11,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.ssis.edu.board.model.BoardDto;
 import org.ssis.edu.board.model.service.BoardService;
+import org.ssis.edu.member.model.ResResult;
 //
 @RestController
 @RequestMapping("/api")
@@ -36,6 +38,22 @@ public class BoardAjaxController {
 	@RequestMapping(value = "/list{seq}", method = RequestMethod.GET)
 	public BoardDto article(@PathVariable int seq, Model model) throws Exception {
 		return boardService.getArticle(seq);
+	}
+	
+//	@RequestMapping(value = "/list", method = RequestMethod.POST)
+//	public void addArticle(@RequestBody BoardDto board, Model model) throws Exception {
+//		boardService.writeArticle(board);
+//	}
+	
+	@RequestMapping(value = "/list", method = RequestMethod.POST)
+	public void addArticle(@RequestBody BoardDto board, Model model) throws Exception {
+		ResResult rr = new ResResult();
+		try {
+			boardService.writeArticle(board);
+			rr.setStatus("SUCCESS");
+		} catch (Exception e) {
+			rr.setStatus("FAIL");
+		}
 	}
 
 }
