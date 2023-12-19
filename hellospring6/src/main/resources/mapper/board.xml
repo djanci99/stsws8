@@ -34,7 +34,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	<select id="deleteArticle" parameterType="int">
 		UPDATE JYL_MBOARD
-		SET DELFLAG = 1
+		SET DELFLAG = 1, WDATE = now()
 		WHERE 1=1
 		AND seq = #{seq}
 	</select>

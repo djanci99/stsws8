@@ -26,7 +26,7 @@ tr:nth-child(even) {
 [${login.name}]님&nbsp;&nbsp;&nbsp;&nbsp;<a href="${root}/list">목록</a>&nbsp;<a href="${root}/write">글쓰기</a>&nbsp;<a href="${root}/logout">로그아웃</a>
 <hr/>
 <h1>
-	Hello world!  
+	수정하기  
 </h1>
 
 <form id="form-register" method="POST"  action="${root}/update">

@@ -46,7 +46,7 @@ public class BoardController {
 	public String update(@RequestParam int seq, Model model) throws Exception {
 		logger.debug("update    {}.  ", seq);
 		model.addAttribute("board", boardService.getArticle(seq));
-		return "update"; //상세보기
+		return "update"; //업데이트
 	}
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public String updateaf(@ModelAttribute BoardDto board, RedirectAttributes red)throws Exception {
@@ -59,6 +59,6 @@ public class BoardController {
 	public String delete(@RequestParam int seq, RedirectAttributes red) throws Exception {
 		logger.debug("delete    {}.  ", seq);
 		boardService.deleteArticle(seq);
-		return "redirect:/list"; //상세보기
+		return "redirect:/list"; //목록으로 회귀
 	}
 }

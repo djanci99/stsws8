@@ -20,8 +20,7 @@ import org.ssis.edu.board.model.service.BoardService;
 @CrossOrigin("*")
 public class BoardAjaxController {
 	
-	private static final Logger logger = 
-			LoggerFactory.getLogger(BoardAjaxController.class);
+	private static final Logger logger = LoggerFactory.getLogger(BoardAjaxController.class);
 	
 	@Autowired
 	private BoardService boardService;
@@ -30,7 +29,8 @@ public class BoardAjaxController {
 	public List<BoardDto> listArticle(Model model) throws Exception {
 		return boardService.listArticle();
 	}
-
+	
+ 
 
 }
 
